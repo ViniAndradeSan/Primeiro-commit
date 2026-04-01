@@ -1,0 +1,227 @@
+<!doctype html>
+<!--
+╔══════════════════════════════════════════════════════════════════╗
+║              EXERCÍCIO — ESQUINA DO SABOR                        ║
+║          Estrutura Semântica HTML5 + Estilização CSS             ║
+╠══════════════════════════════════════════════════════════════════╣
+║                                                                  ║
+║  O que você vai fazer:                                           ║
+║  1. Completar a estrutura semântica desta página                 ║
+║  2. Adaptar o conteúdo com o tema de restaurante que você        ║
+║     escolher (nome, pratos, história, etc.)                      ║
+║  3. Criar o estilo visual no arquivo styles.css                  ║
+║                                                                  ║
+║  Arquivos do exercício:                                          ║
+║  → index.html    (este arquivo — edite aqui)                     ║
+║  → styles.css    (crie os estilos aqui)                          ║
+║  → exemplo.html  (referência — consulte, não edite)              ║
+║  → guia-html.html (guia completo de HTML — use como dicionário)  ║
+║  → guia-css.html  (guia completo de CSS — use como dicionário)   ║
+║                                                                  ║
+║  Dica: abra o exemplo.html no navegador para ver como           ║
+║  a página pode ficar. Depois volte aqui e construa a sua.        ║
+╚══════════════════════════════════════════════════════════════════╝
+-->
+
+<!--
+  TODO 1 ── Defina o idioma correto da página.
+  ─────────────────────────────────────────────
+  O atributo lang no <html> informa ao navegador e ao Google
+  em qual idioma o conteúdo está escrito.
+  
+
+  ✏️  Troque o atributo abaixo pelo valor correto.
+  📖  Referência: guia-html.html → Seção 1 "Estrutura base"
+-->
+<html lang="PT-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!--
+    TODO 2 ── Defina o título da aba do navegador.
+    ──────────────────────────────────────────────
+    A tag <title> controla o texto que aparece na aba do navegador
+    e nos resultados de busca do Google.
+
+    ✏️  Escreva o nome do seu restaurante dentro da tag abaixo.
+  -->
+		<title>Mamamia Restaurante</title>
+
+		<!--
+    A linha abaixo conecta este HTML ao seu arquivo de estilos.
+    Não altere — ela já está configurada corretamente.
+  -->
+		<link rel="stylesheet" href="styles.css" />
+
+		<!--
+    FONTES DO GOOGLE (opcional, mas recomendado)
+    ─────────────────────────────────────────────
+    As linhas abaixo importam duas fontes gratuitas do Google Fonts:
+    → "Playfair Display" — fonte elegante para títulos
+    → "Lato"            — fonte limpa para textos
+
+    Para usar no CSS: font-family: 'Playfair Display', serif;
+                      font-family: 'Lato', sans-serif;
+
+    Você pode trocar por outras fontes em: https://fonts.google.com
+    Não precisa alterar agora — volte aqui depois se quiser.
+  -->
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+	<body>
+    <header>
+		<!-- ============================================================
+    BLOCO 1: CABEÇALHO DA PÁGINA
+    ================================================================
+
+    TODO 3 ── Adicione a tag semântica de cabeçalho.
+    ──────────────────────────────────────────────────
+    O cabeçalho da página deve ser marcado com a tag <header>.
+    Ele fica no TOPO e contém o nome/logo do restaurante
+    e o menu de navegação.
+
+    ✏️  Envolva TODO o conteúdo abaixo (até o comentário
+        "FIM DO CABEÇALHO") com as tags <header> e </header>.
+
+    📖  Referência: guia-html.html → Seção 2 "Tags semânticas"
+    👁️  Veja como fica: exemplo.html → bloco <header>
+  ============================================================ -->
+
+		<!--
+      TODO 4 ── Personalize o nome e slogan do restaurante.
+      ──────────────────────────────────────────────────────
+      ✏️  Troque "Esquina do Sabor" pelo nome que você escolheu.
+          Troque o parágrafo pelo slogan do seu restaurante.
+      ⚠️  Mantenha as tags <h1> e <p> — apenas mude o conteúdo.
+    -->
+		<h1>Mamamia Restaurante</h1>
+		<p>🍴 Nosso restaurante é a resposta para sua fome, descanso, e de tudo mais 🍴</p>
+    
+
+		<!--
+      TODO 5 ── Crie o menu de navegação.
+      ─────────────────────────────────────
+      A navegação principal de um site usa a tag <nav>.
+      Dentro dela, os links ficam em uma lista não-ordenada (<ul>),
+      e cada link é um item de lista (<li>) com um link (<a>).
+
+      Os links usam "#" seguido do id de cada seção para
+      levar o usuário direto ao conteúdo ao clicar.
+
+      ✏️  Substitua este comentário pela estrutura de navegação.
+          Use as 4 seções: #inicio, #menu, #sobre, #contato
+
+      Estrutura esperada:
+      ┌─────────────────────────────┐
+      │ <nav>                       │
+      │   <ul>                      │
+      │     <li><a href="#inicio">  │
+      │     <li><a href="#menu">    │
+      │     <li><a href="#sobre">   │
+      │     <li><a href="#contato"> │
+      │   </ul>                     │
+      │ </nav>                      │
+      └─────────────────────────────┘
+
+      📖  Referência: guia-html.html → Seção 2 "Tags semânticas"
+    -->
+      
+    <nav>
+        <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+
+		<!-- FIM DO CABEÇALHO -->
+     </header>
+     <main>
+
+		<!-- ============================================================
+    BLOCO 2: CONTEÚDO PRINCIPAL
+    ================================================================
+
+    TODO 6 ── Adicione a tag de conteúdo principal.
+    ─────────────────────────────────────────────────
+    A tag <main> marca o conteúdo central e único da página.
+    Deve existir apenas UMA vez por documento.
+
+    ✏️  Envolva TODO o conteúdo abaixo (até o comentário
+        "FIM DO CONTEÚDO PRINCIPAL") com <main> e </main>.
+
+    📖  Referência: guia-html.html → Seção 2 "Tags semânticas"
+  ============================================================ -->
+
+
+    <section id="inicio">
+      <h2>Mamamia</h2>
+      <p>Descubra a solução perfeita para sua fome, com pratos preparados com ingredientes frescos e mamamias </p>
+    </section>
+      <section id="menu" class="secao">
+          <div class="secao-titulo">
+              <span class="numero"></span>
+              <h2>Nosso Cardápio</h2>
+          </div>          
+              <article class="card">
+                  <h3> Mamamia à Bolonhesa</h3>
+                  <p>Massa de triho, molho de tomates, e queijo.</p>
+                  <p class="preco">R$ 45,90</p>
+              </article>
+
+              <article class="card">
+                  <h3>MamaNhoque da Mamamia</h3>
+                  <p>Batatas ao molho quatro queijos e manjericão.</p>
+                  <p class="preco">R$ 38,00</p>
+              </article>
+
+              <article class="card">
+                  <h3>Mamarisoto de Cogumelos</h3>
+                  <p>Arroz,  cogumelos e shimeji.</p>
+                  <p class="preco">R$ 52,00</p>
+              </article>
+              <article class="card">
+                  <h3>Mamarassa realtiva</h3>
+                  <p>negative massa, antimassa, massa vazia.</p>
+                  <p class="preco">R$ 42?,00</p>
+              </article>
+              <article class="card">
+                  <h3>Mamamassa com Massa extra</h3>
+                  <p>massa, super massa, Mega massa .</p>
+                  <p class="preco">R$ 520,00</p>
+              </article>
+          </div>
+      </section>
+
+      <section id="sobre">
+        <h2>Sobre Nós</h2>
+          <p>O Mamamia Restaurante nasceu em 1945, do objetivo de Mama Mia (uma italiana) em trazer o verdadeiro sabor da Itália para o coração do Brasil. O que começou com apenas três mesas e um fogão a lenha, italianos, se transformou em um logar de encontos ,para muitos, uma casa.</p>
+          <p>Nossa cozinha é comandada pelo Chef Mama Marcomio, que mantém a tradição das massas mamisticas feitas à mão todos os dias. Utilizamos apenas ingredientes de qualidade garantida.</p>
+      </section>
+        <section id="contato">
+            <h2>Fale Conosco</h2>
+            
+            <form action="#" method="POST">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" required placeholder="Seu nome completo" /><br>
+
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" required placeholder="seu@email.com" /><br>
+
+                <label for="msg">Mensagem</label><br>
+                <textarea id="msg" name="msg" rows="5" placeholder="Como podemos ajudar?"></textarea>
+
+                <button type="submit">Enviar Mensagem</button>
+            </form>
+        </section>
+     </main>
+      <footer>
+          <p> © 2024 Mamamia Restaurante. Todos os direitos reservados.</p>
+          <p>Feito com muito MAMAMIA a todos os clientes.</p>
+      </footer>
+
+	</body>
+</html>
