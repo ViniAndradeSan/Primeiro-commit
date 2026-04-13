@@ -7,18 +7,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const content = document.querySelector(".content");
 
   let w, h;
+  const STAR_COUNT = 700;
+  let stars = [];
 
   function resize() {
     w = canvas.width = window.innerWidth;
     h = canvas.height = window.innerHeight;
+    createStars();
   }
 
   window.addEventListener("resize", resize);
-  resize();
-
-  /* ⭐ STARS */
-  const STAR_COUNT = 700;
-  let stars = [];
 
   function createStars() {
     stars = [];
@@ -33,18 +31,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  createStars();
-
-  /* INPUT */
-  let targetX = w / 2;
-  let targetY = h / 2;
-
+  let targetX = window.innerWidth / 2;
+  let targetY = window.innerHeight / 2;
   let cursorX = targetX;
   let cursorY = targetY;
-
   let parallaxX = 0;
   let parallaxY = 0;
-
   let scrollY = 0;
   let currentScroll = 0;
 
@@ -57,43 +49,30 @@ document.addEventListener("DOMContentLoaded", () => {
     scrollY = window.scrollY;
   });
 
-  document.addEventListener("mousedown", () => {
-    mira?.classList.add("click");
-  });
-
-  document.addEventListener("mouseup", () => {
-    mira?.classList.remove("click");
-  });
+  document.addEventListener("mousedown", () => mira?.classList.add("click"));
+  document.addEventListener("mouseup", () => mira?.classList.remove("click"));
 
   function drawNebula() {
-    const grad = ctx.createRadialGradient(
-      w * 0.5, h * 0.5, 0,
-      w * 0.5, h * 0.5, w * 0.9
-    );
-    grad.addColorStop(0, "rgba(122,48,255,0.2)");
+    const grad = ctx.createRadialGradient(w * 0.5, h * 0.5, 0, w * 0.5, h * 0.5, w * 0.9);
+    grad.addColorStop(0, "rgba(122,48,255,0.15)");
     grad.addColorStop(1, "transparent");
-
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, w, h);
   }
 
   function drawStars() {
+    ctx.fillStyle = "white";
     for (let s of stars) {
-      let x = s.x + parallaxX * s.z * 60;
-      let y = s.y + parallaxY * s.z * 60 + currentScroll * s.z * 0.4;
+      // Movimento das estrelas com parallax e scroll
+      let x = (s.x + parallaxX * s.z * 60 + w) % w;
+      let y = (s.y + parallaxY * s.z * 60 + currentScroll * s.z * 0.4 + h) % h;
 
-      if (y > h) y = 0;
-      if (y < 0) y = h;
-
-      const glow = ctx.createRadialGradient(x, y, 0, x, y, s.size * 6);
-      glow.addColorStop(0, `rgba(255,255,255,${s.alpha})`);
-      glow.addColorStop(1, "transparent");
-
-      ctx.fillStyle = glow;
+      ctx.globalAlpha = s.alpha;
       ctx.beginPath();
-      ctx.arc(x, y, s.size * 2, 0, Math.PI * 2);
+      ctx.arc(x, y, s.size, 0, Math.PI * 2);
       ctx.fill();
     }
+    ctx.globalAlpha = 1;
   }
 
   function animate() {
@@ -104,86 +83,64 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const nx = targetX / w - 0.5;
     const ny = targetY / h - 0.5;
-
     parallaxX += (nx - parallaxX) * 0.05;
     parallaxY += (ny - parallaxY) * 0.05;
 
     currentScroll += (scrollY - currentScroll) * 0.08;
-  if (mira) {
-  const scale = mira.classList.contains("click") ? 0.85 : 1;
 
-  mira.style.transform = `
-    translate3d(${cursorX}px, ${cursorY}px, 0)
-    translate(-50%, -50%)
-    scale(${scale})
-  `;
-}
+    if (mira) {
+      const scale = mira.classList.contains("click") ? 0.85 : 1;
+      mira.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%) scale(${scale})`;
+    }
 
     if (content) {
-      content.style.transform = `
-        translate3d(${parallaxX * 10}px, ${parallaxY * 10}px, 0)
-      `;
+      content.style.transform = `translate3d(${parallaxX * 10}px, ${parallaxY * 10}px, 0)`;
     }
 
     drawNebula();
     drawStars();
-
     requestAnimationFrame(animate);
   }
 
+  resize();
   animate();
 
-  /* 🔥 FADE OUT FUNCIONANDO */
-  const elements = document.querySelectorAll('.fade-out:not(.content)');
-
+  // Intersection Observer para efeitos de fade
+  const elements = document.querySelectorAll('.fade-out');
   elements.forEach(el => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (!entry.isIntersecting) {
-          el.classList.add('hidden');
-        } else {
-          el.classList.remove('hidden');
-        }
+        el.classList.toggle('hidden', !entry.isIntersecting);
       });
     }, { threshold: 0.2 });
-
     observer.observe(el);
   });
 });
 
-/* 🎴 CARDS */
+// --- FUNÇÕES DOS CARDS (FORA DO DOMCONTENTLOADED PARA O HTML ENXERGAR) ---
+
 function mostrarCard(id) {
   const textos = document.querySelectorAll('.texto');
   const ativo = document.getElementById(id);
 
   if (!ativo) return;
 
-  const aberto = ativo.classList.contains('ativo');
+  const jaAberto = ativo.classList.contains('ativo');
 
+  // Fecha todos
   textos.forEach(t => t.classList.remove('ativo'));
-  ativo.scrollIntoView({
-})
 
-  if (!aberto) {
+  // Se não estava aberto, abre e rola a tela
+  if (!jaAberto) {
     ativo.classList.add('ativo');
-
-    ativo.scrollIntoView({
-      behavior: 'smooth',
-      block: 'center'
-    });
+    setTimeout(() => {
+      ativo.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 100);
   }
 }
 
 function fecharCards() {
   const textos = document.querySelectorAll('.texto');
-
-  setTimeout(() => {
-    textos.forEach(t => {
-      t.classList.remove('ativo');
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-      });
-    });
-  }, 50);
+  textos.forEach(t => t.classList.remove('ativo'));
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
