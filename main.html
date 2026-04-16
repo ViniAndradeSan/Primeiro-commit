@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio - Vinicius Andrade Santos</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="backend.js" defer></script>
+</head>
+
+<body>
+
+  <!-- /* ------------------------------------------------------------------------*/ -->
+  <canvas id="space"></canvas>
+
+  <!-- /* ------------------------------------------------------------------------*/ -->
+  <div class="ceu">
+    <div class="nebulosa"></div>
+    <div class="estrelas camada1"></div>
+    <div class="estrelas camada2"></div>
+    <div class="estrelas camada3"></div>
+
+    <!-- /* ------------------------------------------------------------------------*/ -->
+    <div class="conteudo desaparecer">
+      <header>
+        <h1 class="nome">Vinicius Andrade Santos</h1>
+        <p class="cargo">
+          <em>Estudante de Desenvolvimento Web</em> · Turma 2025
+        </p>
+      </header>
+
+      <!-- /* ------------------------------------------------------------------------*/ -->
+      <section class="secao-botoes">
+        <div class="container-cartoes">
+
+          <button class="cartao" onclick="mostrarCard('Sobre')">
+            <h3>Sobre mim</h3>
+            <p>História e Visão</p>
+          </button>
+
+          <button class="cartao" onclick="mostrarCard('Habilidades')">
+            <h3>Habilidades</h3>
+            <p>Lógica e Web</p>
+          </button>
+
+          <button class="cartao" onclick="mostrarCard('Experiencias')">
+            <h3>Experiências</h3>
+            <p>Git e Equipe</p>
+          </button>
+
+          <button class="cartao" onclick="mostrarCard('Contato')">
+            <h3>Contato</h3>
+            <p>Telefone e Redes</p>
+          </button>
+
+        </div>
+      </section>
+    </div>
+
+    <!-- /* ------------------------------------------------------------------------*/ -->
+    <section class="cards-content">
+      <article id="Sobre" class="texto desaparecer">
+        <div class="bloco-destaque">
+          <div class="imagem-destaque">
+            <img src="https://i.postimg.cc/fy45Fqcg/ddd547d4-9580-4a38-ab29-5be9bf9746f2.jpg" alt="Projeto">
+          </div>
+
+          <div class="texto-destaque">
+            <h2>Opa, Sou Vinicius</h2>
+
+            <p class="estudo">
+              Nascido de Aracaju, cresci na Barra dos Coqueiros e sempre me motivei
+              pela curiosidade de entender como as coisas funcionam. Ingressei no Ensino medio
+              no Centro de Excelência Professor João Costa e me surpreendi, além de estudar, ele foi um leque de novas
+              oportunidades
+              ,durante meu periodo por lá; fui monitor por três anos, Diretor de Relações Públicas
+              no Grêmio Estudantil e menbro dos Jovens Protagonistas. Além disso, sempre gostei de me desafiar mais,
+              isso me levou a participar e conquistar o 1º lugar na Olimpíada de Foguetes,
+              o 3º lugar em Robótica, medalha de prata na OBMEP e participar de uma
+              Iniciação Científica em Matemática pelo CNPq, o que me deu uma base forte de raciocínio e fundamento
+              lógico.
+              No tempo livre, gosto bastante de jogos de tabuleiro, por exemplo o xadrez e damas - inclusive fui aluno
+              destaque em 2025 em ambas modalidades —
+              acredito que junto da leitura, a estratégia e paciência resolvem qualquer problema. Por fim, estou sempre
+              buscando
+              uma oportunidade de aprender cada vez mais, afinal o "A única fonte do conhecimento é a experiência.".
+            </p>
+            <button class="botao" onclick="fecharCards()">Fechar</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- /* ------------------------------------------------------------------------*/ -->
+      <article id="Habilidades" class="texto desaparecer">
+        <h2 class="titulo-secao">Habilidades</h2>
+        <br>
+
+        <div class="grade-habilidades">
+
+          <div class="card-habilidade">
+            <h3>HTML + CSS</h3>
+            <p>Estruturação, layout, Logica e Desenvolvimento Web.</p>
+            <div class="icone">
+              <img src="https://www.image2url.com/r2/default/images/1776043121617-85898ae5-29aa-468d-9bd6-4d4b5f7d5728.jpg" alt="HTML CSS">
+            </div>
+          </div>
+
+          <div class="card-habilidade">
+            <h3>JavaScript</h3>
+            <p>Lógica de programação, manipulação do DOM e interatividade dinâmica.</p>
+            <div class="icone">
+              <img src="https://www.image2url.com/r2/default/images/1776045193570-d1a42472-008a-4128-9833-ff1c1f72e2e4.webp" alt="HTML CSS">
+            </div>
+          </div>
+
+          <div class="card-habilidade">
+            <h3>Git & GitHub</h3>
+            <p>Controle de versão, organização de código e colaboração em projetos.</p>
+            <div class="icone">
+              <img src="https://www.image2url.com/r2/default/images/1776044977105-04cba2ee-886a-42ea-91af-4238d120abf4.png" alt="HTML CSS">
+            </div>
+          </div>
+
+        </div>
+
+        <br>
+        <button class="botao" onclick="fecharCards()">Fechar</button>
+      </article>
+
+    </section>
+
+  </div>
+
+  <!-- /* ------------------------------------------------------------------------*/ -->
+  <article id="Experiencias" class="texto desaparecer">
+    <h2 class="titulo-secao">Experiências</h2>
+
+    <div class="linha-tempo">
+
+      <div class="item-linha-tempo">
+        <div class="esquerda-linha-tempo">
+          <span class="ano">2026 — hoje</span>
+        </div>
+
+        <div class="conteudo-linha-tempo">
+          <h3>Desenvolvimento Web e Logica de programação</h3>
+          <p class="subtitulo">Formação contínua</p>
+          <p>
+            Estudo de HTML, CSS e JavaScript com foco em criação de interfaces modernas e projetos práticos.
+          </p>
+        </div>
+      </div>
+
+      <div class="item-linha-tempo">
+        <div class="esquerda-linha-tempo">
+          <span class="ano">2026 - hoje</span>
+        </div>
+
+        <div class="conteudo-linha-tempo">
+          <h3>Bacharelado em Inteligência Artificial</h3>
+          <p class="subtitulo">Universidade Federal</p>
+          <p>
+            projetar, desenvolver e implementar sistemas inteligentes,
+            com forte base em matemática, algoritmos, machine learning (aprendizado de máquina) e ética.
+          </p>
+        </div>
+      </div>
+
+      <div class="item-linha-tempo">
+        <div class="esquerda-linha-tempo">
+          <span class="ano">2023 — 2025</span>
+        </div>
+
+        <div class="conteudo-linha-tempo">
+          <h3>Monitoria Estudantil</h3>
+          <p class="subtitulo">Centro de Excelência</p>
+          <p>
+            Apoio a alunos, esclarecimento de dúvidas e desenvolvimento de habilidades de comunicação e liderança.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <button class="botao" onclick="fecharCards()">Fechar</button>
+  </article>
+
+  <!-- /* ------------------------------------------------------------------------*/ -->
+  <article id="Contato" class="texto desaparecer">
+    <div class="bloco-destaque">
+      <div class="imagem-destaque">
+        <img src="https://napratica.org.br/wp-content/uploads/2017/11/destaque-rede-de-contatos.jpg" alt="Contato">
+      </div>
+
+      <div class="texto-destaque">
+        <h2>Contato e Redes</h2>
+
+        <div class="lista-contatos">
+
+          <a href="https://wa.me/5579988180212?text=Olá%20Vinicius,%20vi%20seu%20portfólio!" class="item-contato" target="_blank">
+            <div class="icone-contato">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+            </div>
+            <span>(79) 98818-0212</span>
+          </a>
+
+          <a href="mailto:OViniciusAndradeSantos@gmail.com" target="_blank" class="item-contato">
+            <div class="icone-contato">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Email">
+            </div>
+            <span>OViniciusAndradeSantos@gmail.com</span>
+          </a>
+
+          <a href="https://github.com/ViniAndradeSan" target="_blank" class="item-contato">
+            <div class="icone-contato">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+            </div>
+            <span>GitHub</span>
+          </a>
+
+          <a href="http://lattes.cnpq.br/1303947591324317" target="_blank" class="item-contato">
+            <div class="icone-contato">
+              <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png" alt="Lattes">
+            </div>
+            <span>Lattes</span>
+          </a>
+
+        </div>
+
+        <button class="botao" onclick="fecharCards()">Fechar</button>
+      </div>
+    </div>
+  </article>
+
+  <!-- /* ------------------------------------------------------------------------*/ -->
+  <div class="mira" id="mira">
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- /* ------------------------------------------------------------------------*/ -->
+  <footer>
+    <div class="conteudo-correia">
+      <span class="item">
+        Feito com HTML, CSS e JavaScript · Vinicius Andrade Santos · 2025
+      </span>
+    </div>
+  </footer>
+
+</body>
+
+</html>
